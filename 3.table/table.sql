@@ -1,0 +1,159 @@
+
+
+--! MATERI TABLE DI MYSQL
+
+
+--! 1. APA ITU TABLE 
+/*
+    ? TABLE ADLAH KELOMPOK DATA DI DALAM SEBUAH DATABASE 
+*/
+
+--? NOTES: STORAGE ENGINES ADALAH SEBUAH MESIN UNTUK MENYIMPAN SEBUAH DATA
+--? SHOW ENGINES -> PERINTAH UNTUK MELIHAN ENGINE APA SAJA YG ADA DI MYSQL
+
+--! 2. CARA MEMBUAT TABLE
+/*
+
+    --? PERINTAH UNTUK BERINTERAKSI DENGAN TABLE
+    * show tables; -> untuk melihat table
+    * describe || desc nama_table -> untuk melihat struktur table
+    * show create table nama_table untuk melihat strucktur table yg lebih lengkap
+    * truncate table nama_table; -> perintah untuk menghapus semua data pada table sekaligus membuat ulang tablenya 
+    * drop table nama_table;
+
+
+    ? BUAT_TABLE    -> DEFINISIKAN_COLUMN_YG_ADA_DI_DALAM_TABLE
+    * create table nama_table (
+    * nama_column ...column_Definition (contoh kaya tipe data,constraint dll) ,
+    * ...nama_Column column_Definition
+    * ) ENGINE=NAMA_ENGINE (OPTIONAL DEFAULTNYA INNO DB)
+
+    ? ALTER TABLE -> SEBUAH CARA UNTUK MEMODIFIKASI ATAU BERINTERAKSI DENGAN COLUMN PADA TABLE
+
+    * ALTER TABLE NAMA_TABLE 
+    * add column nama_column ...column_Definition, -> untuk menambahkan kolom ke table
+    * drop column nama_column, -> utnuk menghapus column pada table
+    * modify nama_column ..column_definition, -> untuk memodifikasi kolom
+    * change column old_column  new_Column, ...column_definition
+
+    todo: notes: null adalah nilai kosong yg kita berikan ke column
+    todo: note: default value adlah nilai default yg kita berikan saat memberikan colomn tipenya not null 
+
+    todo:notes: di column definition pada column saat membuat table  kita bisa berikan not null default default_valuenya -> artinya nanti column tesebut tidak boleh kosong dan default valuenya sesuai dengan yg kita tentukan tadi
+
+    todo: kita bisa berikan default value current_timestamp pada column yg tipe datanya timestamp artinya data yg dimasukan nanti adalah waktu ketika datanya masuk ke database
+
+*/
+
+
+--! 3. MEMBUAT DATA COLUMN PADA TABLE
+/*
+    --? SYNTAX
+    * INSERT INTO NAMA_TABLE(nama_column,...nama_column) values (value1,...value), ...(value1,...value)
+
+    --? Example
+    * INSERT INTO product(nama,deskripsi,harga) values ('barang1','barang1',10000),('barang2','barang2',20000)
+
+*/
+
+--! 4. SELECT DATA COLUMN PADA TABLE
+/*
+
+    --? SYNTAX
+    --? * -> ARTINYA KITA AKAN MENGAMBIL SEMUA DATA PADA COLUMN TABLE
+    * SELECT * || NAMA_COLUMN1,...NAMA_COLUMN FROM NAMA_TABLE
+
+    --?EXAMPLE
+    * SELECT * from barang;
+    ||
+    * select nama,description from barang
+
+*/
+
+
+--! 5. PRIMARY KEY
+/*
+    --? PRIMARY KET ADALAH SEBUAH CONSTRAINT ATAU ATRIBUTE UNTUK MEMBUAT COLUMN NILAINYA TIDAK BISA DUPLIKAT ATAU SAMA
+    --? BIASNAYA UNTUK MEMBUAT COLUMN UNIK
+
+    --? CARA MENGGUNAKAN PRIMARY KEY
+    TODO: GUNAKAN SAAT BUAT TABLE
+    * create table nama_table(
+        * nama_column primary key,
+        ...nama_column
+    * )
+    * ||
+    * create table nama_table(
+        * nama_column,
+        * ...nama_column
+        * primary key(nama_column)
+    * )
+    * || primary key name
+    * create table nama_table(
+        * nama_column,
+        * ...nama_column
+        * CONSTRAINT nama_constraint_PK PRIMARY KEY (nama_column,...nama_column)
+    * )
+
+    TODO: GUNAKAN di alter tables
+    * alter table nama_table 
+    * add primary key nama_column
+    * DROP PRIMARY KEY; 
+    * || 
+    * alter table nama_table 
+    *  ADD CONSTRAINT PK_Person PRIMARY KEY (nama_column,...nama_columns); 
+    * DROP PRIMARY KEY; 
+*/
+
+
+
+--! 6. WHERE CLAUSE
+/*
+    --? SEBUAH CARA ATAU OPERATOR UNTUK MENCARI SEBUAH DATA COLUMN PADA TABLE
+    --? where operator adalah sebuah simbol untuk melakukan aksi atau operasi saat mencari data
+    TODO: CARA PENGGUNAAN DI LAKUKAN SAAT SELECT DATA
+
+    ? SYNTAX
+    * select * from nama_tables WHERE condition (where_operator)
+
+    ? example
+    * select * from buku where id = 1 -> ini artinya akan mengambil data buku yg id nya 1 
+
+*/
+
+
+--! 7. UPDATE DATA
+/*
+    --? UPDATE DATA ADALAH SEBUAH CARA UNTUK MENGUBAH DATA COLUMN PADA TABLE
+
+    ? SYNTAX
+     * UPDATE NAMA_TABLE SET NAMA_COLUMNS='value_baru',...NAMA_COLUMNS=value WHERE condition (where_operator)
+    ? example
+    * update buku set nama = 'buku2', tahun_terbit = '2022' where id = 1 -> ini artinya akan mengupdate data nama dan tahun penerbit pada data yg idnya 1
+
+    TODO: NOTES UNTK WHERE OPERTAOR SEBENERNYA OPTIONAL CMN KLO TIDAK MEMAKAI WHERE OPERATOR ITU BISA MENYEBABKAN UPDATE SEMUA DATA YG ADA DI TABLE 
+*/
+
+--! 8. DELETE DATA
+/*
+    ? DELETE DATA ADALAH SEBUAH CARA UNTUK MENGHAPUS DATA COLUMN PADA TABLE
+
+    --? SYNTAX
+    * DELETE FROM table_name WHERE condition (where_operator);
+    ? EXAMPLE
+    * delete from buku where id = 1 -> ini artinya akan menghapus data buku yg idnya 1
+
+    TODO: NOTES UNTK WHERE OPERATOR SEBENERNYA OPTIONAL CMN KLO TIDAK MEMAKAI WHERE OPERATOR ITU BISA MENYEBABKAN DELETE SEMUA DATA YG ADA DI TABLE 
+*/
+
+
+--! 9. ALIAS
+/*
+    --? ALIAS ADLAAH SEBUAH CARA UNTUK MENGUBAH NAMA_COLUMN ATAU TABLE KETIKA KITA SELECT DATA
+
+    --? ALIAS COLUMN SYNTAX
+    * SELECT column_name AS alias_name FROM table_name;
+
+    --? ALIAS TABLE SYNTAX 
+    * SELECT alias_table_name.column_name FROM table_name AS alias_table_name;
+*/
