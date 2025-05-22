@@ -221,6 +221,7 @@
 /*
         ? sebuah cara untku membuat column pada table nilainya bisa bertambah secara otomatis ketika kita menambahkan data ke table
 
+    todo: last_insert_id() sebuah fungsi untuk mengetahui nilai akhir dari auuto_increment column pada sebuah table
 
     todo: notes auto_increment hanya bisa digunakan oleh column yg tipedatanya int dan dia primary key
 */
