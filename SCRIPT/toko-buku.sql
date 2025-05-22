@@ -4,36 +4,56 @@ create database toko_buku_camakara;
 
 use toko_buku_camakara;
 show ENGINES;
-
+show tables;
 create table buku (
 	id int  primary key auto_increment,
 	judul varchar(255) not null,
-	penulis varchar(255) not null,
+	id_penulis int not null,
+	id_category int not null,
 	harga int,
-	stock int
+	tahun_terbit year not null,
+	stock int,
+	
+	constraint fk_id_penulis FOREIGN KEY  (id_penulis) references penulis(id),
+	constraint fk_id_kategori FOREIGN KEY  (id_category) references kategori_buku(id)
 )
 
-create table pelanggan (
-	id int  primary key auto_increment,
-	nama varchar(255) not null,
-	email varchar(255) not null,
-	noHP int
+create table penulis (
+	id int primary key auto_increment,
+	nama_penulis varchar(255) not null,
+	negara_asal varchar(255)
 )
 
-alter table buku 
---  add column tahun_terbit year not null
--- change column testing2  testing varchar(255) not null default ''
-modify column tahun_terbit YEAR not null after penulis
--- drop column testing
+create table kategori_buku (
+	id int primary key auto_increment,
+	nama_kategori varchar(255) not null
+)
 
-alter table pelanggan 
---  add column created_at timestamp not null default current_timestamp
-modify noHP int after email
+insert into kategori_buku (nama_kategori) values ('fiksi'), ('non-fiksi')
 
-show tables;
-show create table buku;
+insert into penulis (nama_penulis) values ('test')
+
+insert into buku (judul,id_penulis,id_category,harga,tahun_terbit,stock) values ('test',3,2,100000,'1943',50)
+
+update buku set id_penulis = 2 where id = 4
+
+-- delete from penulis where id = 5
+
+truncate buku
+
+show tables
+
+desc kategori_buku
+
 desc buku
-desc pelanggan
+
+select * from kategori_buku
+
+select * from penulis
+
+select * from buku;
+delete from buku where judul = 'test'
+
 
 insert into buku (judul,tahun_terbit,penulis,harga,stock) values  ('filosofi teras','2018','Henry Manampiring',60000,100),
 ('anatomic habit','2018','James Clear',70000,50),

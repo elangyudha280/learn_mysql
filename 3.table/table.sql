@@ -119,6 +119,13 @@
     ? example
     * select * from buku where id = 1 -> ini artinya akan mengambil data buku yg id nya 1 
 
+    ? WHERE OPERATOR adalah sebuah simbol untuk melakukan operasi pencarian data column pada table
+    todo: ada banyak where operator lebih lengkap bisa cek di dokumentasinya atau w3c
+    --? syntax
+    * SELECT column1, column2, ... FROM table_name WHERE condition; 
+    ? example
+    * Select * from buku where stock <= 50  -> ini artinya kita akan ngambil data buku yg stocknya di bawah atau sama dengan 50
+
 */
 
 
