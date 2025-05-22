@@ -164,3 +164,71 @@
     --? ALIAS TABLE SYNTAX 
     * SELECT alias_table_name.column_name FROM table_name AS alias_table_name;
 */
+
+
+--! 10. ORDER BY CLAUSE 
+/*
+
+    --? order by clause adalah sebuah teknik atau cara untuk mengurutkan sebuah data ketika di select atau di ambil
+
+    --? syntax
+    * select * from nama_table order by nama_column ASC|DESC, ...nama_column ASC/DESC
+
+    --? EXAMPLE
+    * select *  from buku order by id asc -> ini artinya kita mengambil semua data dari table buku dan diurutkan berdasarkan id yg terkecil hingga yg terbesar  
+
+*/
+
+--! 11. limit clause
+/*
+    ? limit clause adalah sebuah cara untuk meng-skip dan membatasi sebuah data ketika di select atau di ambil
+
+    --? syntax
+    * select * from nama_table limit berapa_banyak_data_di_skip(number), berapa_banyak_data_diambil(number)
+
+    --? example 
+    * select * from buku limit 5,5 -> ini artinya kita akan mengskip 5 data dan kita hanya akan mengambil hanya 5 data aja 
+
+
+    todo: notes: limits ini bisa digunakan berbarengan dengan order by clause
+    --* example -> select * from nama_table order by nama_column asc||desc limit jumlah_skip(number),jumlah_data(number) 
+*/
+
+--! 12. select distinct data
+/*
+    --? select distinc data adalah sebuah cara untuk mencegah duplikasi data ketika kita select sebuah data
+
+    --? syntax
+    * select distict nama_column from nama_table
+    
+    --? example
+    * select distinct category from buku -> ini artinya kita akan mengambil data category buku pada table buku dan menghilangkan duplikasinya
+*/
+
+--! 13. numeric function
+/*
+    ? numeric function adalah sebuah fungsi yg di sediakan oleh mysql untuk berinteraksi dengan data angka
+    
+    --? ada macam-macam fungsi yg bisa digunakan lebih lengkap bisa cek di dokumentasinya
+    
+    *|| * = fungsi atau operator untuk mengkalikan sebuah data yg kita punya
+    *||  + = fungsi atau operator untuk menambahkan data yg kita punya
+    *|| - = fungsi atau operator untuk mengurangi data yg kita punya
+    *|| / = fungsi atau operator untuk membagi data yg kita punya
+    *||  DIV = fungsi atau operator untuk membagi dan mengubah nya menjadi decimal data yg kita punya
+    *|| % fungsi atau operator untuk mengambil sisa bagi dari data yg kita punya
+
+    --? example
+    * Select price div 1000 from buku
+    * select price +5000 from buku
+*/
+
+
+--! 14. auto increment
+/*
+        ? sebuah cara untku membuat column pada table nilainya bisa bertambah secara otomatis ketika kita menambahkan data ke table
+
+    todo: last_insert_id() sebuah fungsi untuk mengetahui nilai akhir dari auuto_increment column pada sebuah table
+
+    todo: notes auto_increment hanya bisa digunakan oleh column yg tipedatanya int dan dia primary key
+*/
