@@ -232,3 +232,79 @@
 
     todo: notes auto_increment hanya bisa digunakan oleh column yg tipedatanya int dan dia primary key
 */
+
+--! 15. flow control function
+/*
+    ? flow control function adalah sebuah cara unutk melakukan penkondisian ketika select data
+
+    --todo: notes ada beberapaa fflow control function lebih lengkapnya bisa cek di dokumentasinya
+
+    --? beberapa
+    *1.  CASE
+    --? SYNTAX
+    * SELECT NAMA_COLUMN_WHEN_CONDITION THEN VALUE_JIKA_KONDISI_TERPENUHI
+    -- ? EXAMPLE
+    *  SELECT OrderID, Quantity,
+    * CASE
+    *    WHEN Quantity > 30 THEN 'The quantity is greater than 30'
+    *    WHEN Quantity = 30 THEN 'The quantity is 30'
+    *    ELSE 'The quantity is under 30'
+    * END AS QuantityText
+    * FROM OrderDetails;
+
+    * 2. IF
+    --? SYNTAX
+    * SELECT IF(CONDITION,TRUE,FALSE)
+
+    * 3. IFNULL
+    --? SYNTAX
+    * SELECT IFNULL(CONDITION,TRUE,FALSE)
+
+*/
+
+--! 16. aggregate functionn
+/*
+    --? aggregate function adalah fungsi yang digunakan untuk menghitung nilai dari sekumpulan data dan mengembalikan satu nilai saja sebagai hasilnya.
+
+    --todo: contoh kita ingin ambil harga termahal atau terendah dari sebuah buku atau rata rata harga dari semua buku atau total buku dll
+
+    --? ada banyak fungsi aggregate lebih lengkap bisa cek di dokumentasinya
+    --? beberapa yg bisa digunakan
+
+    --* 1.avg(column)
+    *  untuk melihat rata" data dari sebuah column
+    --?  syntax 
+    * select avg(nama_columm) from nama_Table
+    --? example
+    * select avg(harga) from buku
+
+    --* 2.count(column)
+    *  untuk melihat jumlah data dari sebuah column
+    --?  syntax 
+    * select count(nama_columm) from nama_Table
+    --? example
+    * select count(harga) from buku
+
+    --* 3.min(column)
+    *  untuk melihat  data terendah dari sebuah column
+    --?  syntax 
+    * select min(nama_columm) from nama_Table
+    --? example
+    * select min(harga) from buku
+
+    --* 4.max(column)
+    *  untuk melihat  data tertinggi dari sebuah column
+    --?  syntax 
+    * select max(nama_columm) from nama_Table
+    --? example
+    * select max(harga) from buku
+
+    --* 5.sum(column)
+    *  untuk melihat  menjumlahkan data dari dari masing" sebuah column
+    --?  syntax 
+    * select sum(nama_columm) from nama_Table
+    --? example
+    * select sum(harga) from buku
+
+    todo: notes ketika kita menggunakan aggregate pada sebuha column kita cmn bisa select 1 column, klo ingin supaya tetep bisa select lebih dari 1 column kita bisa gunakan grouping atau  having
+*/

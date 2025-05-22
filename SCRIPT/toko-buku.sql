@@ -54,6 +54,22 @@ select * from penulis
 select * from buku;
 delete from buku where judul = 'test'
 
+-- SELECT buku WITH IF CONDITION FUNCTION
+-- select judul, if(harga > 100000,'elite',if(harga < 50000,'murah','mid')) as 'type harga' from buku 
+
+-- SELECT buku WITH case CONDITION FUNCTION
+select judul,tahun_terbit , case 
+	when tahun_terbit < 2010 then 'under_2010'
+	when tahun_terbit < 2020 then 'under_2020'
+	else 'above_2020'
+end as 'bookyear'
+from buku
+
+-- select count(judul) from buku
+-- select min(harga) from buku
+-- select max(id_penulis) from buku
+select sum(harga) as'total_harga_semua_buku' from  buku
+-- select avg(judul) as'rata-rata-harga-buku' from buku
 
 insert into buku (judul,tahun_terbit,penulis,harga,stock) values  ('filosofi teras','2018','Henry Manampiring',60000,100),
 ('anatomic habit','2018','James Clear',70000,50),
