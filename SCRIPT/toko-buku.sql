@@ -68,8 +68,15 @@ from buku
 -- select count(judul) from buku
 -- select min(harga) from buku
 -- select max(id_penulis) from buku
-select sum(harga) as'total_harga_semua_buku' from  buku
+-- select sum(harga) as'total_harga_semua_buku' from  buku
 -- select avg(judul) as'rata-rata-harga-buku' from buku
+
+
+-- aggreate function with group and having 
+-- select count(id) as 'total buku', id_penulis from buku group by id_penulis order by id asc;
+-- select sum(harga) as 'total_harga_buku_perpenulis', id_penulis from buku group by id_penulis
+
+-- select sum(harga) as total_harga_buku_perpenulis , id_penulis from buku group by id_penulis  having total_harga_buku_perpenulis > 50000
 
 insert into buku (judul,tahun_terbit,penulis,harga,stock) values  ('filosofi teras','2018','Henry Manampiring',60000,100),
 ('anatomic habit','2018','James Clear',70000,50),

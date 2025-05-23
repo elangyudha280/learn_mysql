@@ -306,5 +306,49 @@
     --? example
     * select sum(harga) from buku
 
-    todo: notes ketika kita menggunakan aggregate pada sebuha column kita cmn bisa select 1 column, klo ingin supaya tetep bisa select lebih dari 1 column kita bisa gunakan grouping atau  having
+    todo: notes ketika kita menggunakan aggregate pada sebuah column kita cmn bisa select 1 column, klo ingin supaya tetep bisa select lebih dari 1 column kita bisa gunakan grouping atau  having
+
+    todo:note: sebenrnya bisa lebih dari 1 column tapi yg tampil nanti cmn 1 data aja 
+*/
+
+
+--! 17. GROUP BY
+/*
+    --? GROUP BY ADALAH SEBUAH CARA UNTUK MENGKELOMPOKAN DATA KETIKA KITA SELECT DATA COLUMN YG MENGGUNAKAN AGGREATE FUNCTION
+    
+    --? JADI BISA KITA GUNAKAN MISAL UTNK AMBIL TOTAL DATA BUKU DARI MASING-MASING PENULIS BUKUNYA
+
+    --? sytax
+    * SELECT aggregate_function(nama_column), nama_column_as_grouping
+   * FROM nama_tables
+   * GROUP BY nama_column_as_grouping;
+
+    --? example
+    * SELECT COUNT(CustomerID), Country
+    * FROM Customers
+    * GROUP BY Country; -> ini artinya kita akan mengambil total data dari masing-masing negara
+
+-   
+
+    --TODO:NOTES: GROUPBY HANYA BISA DIGUNAKAN KETIKA KITA MENGGUNAKAN AGGREGATE FUNCTION PADA SEBUAH COLUMN 
+*/
+
+--! 18. having caluse
+/*
+    --? HAVING CLAUSE ADALAH SEBUAH CARA UNTUK MENCARI DATA KETIKA KITA SELECT DATA MENGGUNAKAN AGGREGATE FUNCTION DAN GROUP BY 
+    
+    --? SYNTAX
+    * SELECT aggregate_function(nama_column), nama_column_as_grouping
+    * FROM nama_tables
+    * GROUP BY nama_column_as_grouping;
+    * having nama_column condition (where_Operator)
+
+    --?example
+    * SELECT COUNT(CustomerID), Country
+    * FROM Customers
+    * GROUP BY Country
+    * HAVING COUNT(CustomerID) > 5 -> ini artinya kita akan mengambil total data user dari masing masing country dan hanya mengambil data country yg usernya lebih dari 5  
+
+
+    --TODO: NOTES: HAVING CLAUSE HANYA BISA DIGUNAKAN KETIKA KITA SELECT DATA MENGGUNAKAN AGGREGATE FUNCTION DAN GROUP BY
 */
