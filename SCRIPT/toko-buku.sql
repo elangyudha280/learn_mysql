@@ -5,6 +5,8 @@ create database toko_buku_camakara;
 use toko_buku_camakara;
 show ENGINES;
 show tables;
+
+
 create table buku (
 	id int  primary key auto_increment,
 	judul varchar(255) not null,
@@ -52,6 +54,8 @@ select * from kategori_buku
 select * from penulis
 
 select * from buku;
+
+
 delete from buku where judul = 'test'
 
 -- SELECT buku WITH IF CONDITION FUNCTION
@@ -99,11 +103,30 @@ insert into pelanggan(nama,email) values ('elang yudha','elang@gmail.com'), ('he
 ('nopal','nopal@gmail.com')
 
 
-truncate pelangga
+-- truncate pelangga
+insert into penulis (nama_penulis) values ('test')
 
-select * from pelanggan
--- select id as idPelanggan, nama as 'nama pelanggan'  from pelanggan
+insert into buku (judul,id_penulis,id_category,harga,tahun_terbit,stock) values ('test3',6,
+2,2000,2020,1)
 
-update pelanggan set noHP = null  where id =1 
+delete from buku where judul = 'test2' or judul ='test3';
 
-delete from pelanggan where nama = 'reja'
+alter table buku 
+add constraint  fk_id_penulis foreign key (id_penulis) references penulis(id) on delete cascade on update cascade;
+
+-- drop constraint fk_id_penulis
+desc buku;
+desc kategori_buku;
+desc penulis
+
+select * from kategori_buku
+
+select * from penulis
+
+select * from buku;
+
+
+-- JOIN
+-- get all data
+
+select * from buku join penulis on (buku.id_penulis = penulis.id) left join kategori_buku  on (buku.id_category = kategori_buku.nama_kategori)

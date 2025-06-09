@@ -1,0 +1,199 @@
+
+
+
+// ! MATERI TABLE DI MARIADB
+
+
+//!  1. APA ITU TABLE
+/*
+    TABLE ADALAH SEBUAH TEMPAT DIMANA DATA DISIMPAN
+*/
+
+//! 2. PERINTAH SQL UNTUK BERINTERAKSI DENGAN TABLE
+/*
+    TODO: COLUMN ADALAH DATA YG DISIMPAN DI DALAM TABLE
+    todo: NULL adalah nilai kosong secara default columnt akan di set null artinya column tersebut nilainya boleh kosong klo ingin tidak boleh kosong tambahkan perintah not null
+
+    TODO: DEFAULT VALUE ADALAH NILAI DEFAULT DARI SEBUAH COLUMN BIASANYA DI SET KETIKA KITA SET SEBUAH COLUMN NOT NULL
+    * CARANYA : nama_column column_definisiton DEFAULT VALUE_DEFAULT
+
+    * 1. show tables = untuk menampilkan table apa yg tersedia
+
+    * 2.desc || descibe nama_table = untuk melihat column apa saja yg ada di table
+        * show create table nama_table
+
+    * 3. DROP TABLE table_name;  = untuk menghapus table
+    
+      * 4. create table nama_table (
+      *    nama_column column_Definition (tipedata, auto_increment, key, ...),
+      * ) engine=value (optional) = untuk membuat dan mendefinisikan column pada table
+    
+    * 5. alter table nama_table ...column_definition||datatype = untuk mengubah column yg ada di table ketika sudah di buat
+    todo: option yg ada di alter table
+    /
+        * 1. add nama_column (...column_definition)= utnuk menabahkan column
+        * 2. drop nama_column = untuk menghapus column
+        * 3. modify column column_name datatype after nama_column(jika ingin column diletkan setlah column tertentu) || first (jika ingin columnnya di taro di urutan pertama); = untuk mengubah atau memodifikasi column seperti mengubah tipedaa 
+        * 4. rename column nama_column to nama_column_baru = untuk mengubah nama column
+    /
+
+    * 6. TRUNCATE TABLE NAMA_TABLE = DIGUNAKAN UNTUK MERESET ATAU MENGHAPUS SEMUA DATA PADA COLUMN YG ADA DI TABLE
+
+    * 7. SELECT ...NAMA_COLUMN || *(JIKA INGIN SEMUA COLUMN) FROM NAMA_TABLE = PERINTAH UNTUK MENAMPILKAN DATA COLUMN PADA TABLE
+    
+    * 8. INSERT INTO NAMA_TABLE(...NAMA_COLUMN) VALUES (...VALUE_COLUMNS) = perintah yg digunakan untuk menabahkan data ke table
+*/
+
+
+
+//! 3. INSERT DATA
+/*
+    TODO: INSERT DATA ADALAH SEBUAH PERINTAH SQL YG DIGUNAKAN UNTUK MENAMBAHKAN DATA KE DALAMN COLUMN PADA TABLE
+
+    * PERINTAH SQL
+    * INSERT INTO NAMA_TABLE(...NAMA_COLUMN) VALUES (...VALUES),...(VALUES   )
+*/
+
+
+//! 4. SELECT DATA
+/*
+    TODO: SELECT DATA ADALAH SEBUAH PERINTAH YG DIGUNAKAN UNTUK MENAMPILKAN DATA
+
+    * PERINTAH SQL
+    * SELECT NAMA_COLUMN || *(JIKA INGIN SEMUA DATA) FROM NAMA_TABLE;
+
+*/
+
+//! 5. PRIMARY KEY
+/*
+    TODO: PRIMARY KEY ADALAH SEBUAH KUNCI ATAU ATRIBUT YG DIGUNAKAN UNTUK MEMBUAT SEBUAH COLUMN PADA TABLE DATANYA TIDAK BISA DUPLIKAT ATAU UNIQUE
+
+    TODO:NOTE: SEBUAH TABLE BISA MEMILIKI LEBIH DARI 1 PRIMARY KEY DI COLUMN NYA 
+
+    * PERINTAH SQL
+    * CREATE TABLE NAMA_TABLE (
+    *   NAMA_COLUMN PRIMARY KEY,
+    *   ...COLUMN
+        TODO: ATAU BISA CARA YG DIBAWAH
+    *   PRIMARY KEY(NAMA_COLUMN1,...NAMA_COLUMN) 
+    * )
+
+    ! ||  
+
+    * ALTER TABLE NAMA_TABLE
+    * ADD PRIMARY KEY (NAMA_COLUMN,...NAMA_COLUMN);  -> UNTUK MENAMBAHKAN PRIMARY KEY
+    * DROP PRIMARY KEY; 
+
+*/
+
+
+//! 6. WHERE CLAUSE
+/*
+    TODO: WHERE CLAUSE ADALAH SALAH SATU TEKNIK SELECT YG DIGUNAKAN UNTUK MENCARI DATA PADA TABLE
+
+    TODO: NOTE: WHERE OPERATOR ADALAH SEBUAH SIMBOL UNTUK MENCARI DATA
+    *CONTOH: =, >, <, >=, <=, <>(NOT), BETWEEN, LIKE, IN, AND, OR, NOT
+
+    * PERINTAH SQL 
+    * SELECT NAMA_COLUMN || * FROM NAMA_TABLE WHERE NAMA_COLUMN = VALUE_COLUMN
+     
+*/
+
+//! 7. UPDATE DATA
+/*
+    TODO: UPDATE DATA SEBUAH CARA UNTUK MENGUBAH DATA
+
+    * PERINTAH SQL
+    * UPDATE TABLE NAMA_TABLE
+    * SET NAMA_COLUMN=VALUE_BARU, ...NAMA_COLUMN
+    * WHERE CONDITION
+
+*/
+
+//! 8. DELETE DATA
+/*
+    TODO: DELETE DATA ADALAH SEBUAH CARA UTNUK MENGHAPUS DATA
+    
+    * PERINTAH SQL
+    * DELETE FROM NAMA_TABLE WHERE CONDITIONS
+
+*/
+
+//! 9. ALIAS
+/*
+    TODO: ALIAS ADALAH SEBUAH CARA UNTUK MEMBERI NAMA LAIN DARI COLUMN ATAU TABLE KETIKA DI SELECT ATAU DI TAMPILKAN
+
+    * PERINTAH SQL
+    ! alias column
+    *SELECT column_name AS alias_name FROM table_name; 
+
+    ! alias table
+    * SELECT column_name AS alias_name FROM table_name AS alias_name;
+*/
+
+
+//! 10. ORDER BY 
+/*
+    TODO: ORDER BY ADALAH SEBUAH CARA UNTUK MENGURUTKAN SEBUAH DATA
+
+    * PERINTAH SQL
+    TODO: ASC ITU UNTUK MENGURUTKAN DATA DARI TERKECIL KE TERBESAR
+    TODO: DESC ITU UNTUK MENGURUTKAN DATA DARI TERBESAR KE TERKECIL
+    * SELECT NAMA_COLUMN||* FROM NAMA_TABLE ORDER BY NAMA_COLUMN, ...NAMA_COLUMN ASC || DESC
+
+*/
+
+//! 11. LIMIT CLAUSE
+/*
+    TODO: LIMIT CLAUSE ADALAH SEBUAH CARA UTNK MEMBATASI DAN MENG-SKIP DATA KETIKA DI SELEKSI
+
+    * PERINTAH SQL
+    * SELECT NAMA_COLUMN||* FROM NAMA_TABLE WHERE NAMA_COLUMN,...NAMA_COLUMN LIMIT JUMLAH_DATA_YG_DIAMBIL,JUMLAH_DATA_YG_DIs_SKIP
+*/
+
+//! 12. DISTINCT
+/*
+    TODO: DISTINCT ADALAH SEBUAH CARA UNTUK MENCEGAH DUPLIKASI DATA COLUMN KETIKA DI SELECT 
+
+    * PERINTAH SQL
+    * SELECT DISTINCT NAMA_COLUMN 
+*/
+
+
+
+//! 13. CONSTAINTS
+/*
+    CONSTRAINTS ADALAH SEBUAH CARA UNTUK MEMBUAT ATURAN UNTK DATA COLUMN PADA TABLE
+    TODO: CONTOHNYA SEPERTI MEMBUAT DATA TIDAK BISA DUPLIKAT, TIDAK ATAU BOLEH KOSONG, DATA PADA COLUMN BISA DI TAMBAHKAN SECARA OTOMATIS ATAU TIDAK, DAN APAKAH DATA COLUMN BISA DI HUBUNGKAN KE COLUMN PADA TABLE LAIN
+
+    * JENIS-JENIS CONSTRAINT
+    TODO: ADA BEBERAPA BISA CEK DI WEB W3C
+    
+    * 1. PRIMARY KEY
+      /
+        * SEBUAH CONSTRAINT ATAU KUNCI UNTK MENENTUKAN SEBUAH COLUMN NILAINYA TIDAK BOLEH DUPLIKAT
+      /
+    
+    * 2. FOREIGN KEY
+      /
+        * SEBUAH CONSTRAINT ATAU KUNCI UNTK MENGHUBUNGKAN DATA COLUMN KE COLUMN PADA TABLE LAIN
+      /
+
+    * 3. NOT NULL
+      /
+        * SEBUAH CONSTRAINT UNTUK MEMBUAT SEBUAH COLUMN TIDAK BOLEH KOSONG DATANYA
+      /
+    * 4. DEFAULT
+      /
+        * SEBUAH CONSTRAINT UNTK MENENTUKAN NILAI DEFAULT DARI COLUMN KETIKA DI SET NOT NULL
+      /
+    
+    * 5. UNIQUE
+      /
+        * SEBUAH CONTRAINT UNTUK MEMBUAT  SEBUAH COLUMN NILAINYA TIDAK BOLEH DUPLIKAT TAPI BOLEH KOSONG     
+      /
+    * 6. CHECK 
+      /
+        * SEBUAH CONSTRAINT UNTK MELAKUKAN PENGECHEKAN SEBELUM DATA DI MASUKAN KE TABLE
+      /
+*/
