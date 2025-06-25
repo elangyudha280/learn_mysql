@@ -50,6 +50,6 @@
         *    FROM produk
         *    WHERE harga > (
         *     SELECT AVG(harga) FROM produk
-        * ); ->  artinya kita akan mengambil data nama danharga di column product yg harga rata ratanya terbesar
+        * ); ->  artinya kita akan mengambil data nama dan harga di column product yg harga rata ratanya terbesar
     / 
 */

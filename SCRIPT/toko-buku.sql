@@ -3,6 +3,7 @@
 create database toko_buku_camakara;
 
 use toko_buku_camakara;
+
 show ENGINES;
 show tables;
 
@@ -130,3 +131,16 @@ select * from buku;
 -- get all data
 
 select * from buku join penulis on (buku.id_penulis = penulis.id) left join kategori_buku  on (buku.id_category = kategori_buku.nama_kategori)
+
+
+-- sub query
+
+select judul,harga, harga div 1000 as 'price in K'  from buku where harga <  (select max(harga) from buku)
+
+
+
+select judul,harga, harga div 1000 as 'price in K'  from buku where id_penulis s (select id from penulis)
+
+
+
+
